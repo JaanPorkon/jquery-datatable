@@ -17,19 +17,40 @@
 
 <body>
 
+<?php
+
+$csv = explode('|', file_get_contents("Keyword Planner 2015-12-01 at 21_27_46.csv"));
+
+?>
+
 <table class="datatable">
-	<thead>
-		<th>ID</th>
-		<th>Name</th>
-	</thead>
-	<tr>
-		<td>6</td>
-		<td>Chuck</td>
-	</tr>
-	<tr>
-		<td>2</td>
-		<td>Taylor</td>
-	</tr>
+	<?php
+
+	for($i = 0; $i < count($csv); $i++)
+	{
+		$row = explode(',', trim($csv[$i]));
+
+		if($i == 0)
+		{
+			echo '<thead>';
+			foreach($row as $columnHeader)
+			{
+				echo '<th>'.$columnHeader.'</th>';
+			}
+			echo '</thead>';
+		}
+		else
+		{
+			echo '<tr>';
+			foreach($row as $columValue)
+			{
+				echo '<td>'.$columValue.'</td>';
+			}
+			echo '</tr>';
+		}
+	}
+
+	?>
 </table>
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>

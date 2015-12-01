@@ -1,0 +1,5 @@
+.datatable
+.datatable-header {
+	cursor: pointer;
+	font-weight: bold;
+}
