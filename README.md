@@ -1,0 +1,1 @@
+A simple jQuery plugin for creating simple and fast datatables.
